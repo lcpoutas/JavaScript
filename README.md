@@ -1,8 +1,4 @@
 
-Aquí tienes el texto en formato Markdown para tu repositorio de JavaScript con las secciones AJAX, ArrayMethods, DOM, ejercicios, y ejer_logicaProgramacion:
-
-md
-Copiar código
 # JavaScript Scripts and Exercises Repository
 
 Welcome to my JavaScript repository! This is a collection of scripts and exercises that demonstrate different aspects of JavaScript programming. The repository is organized into various sections, each covering important JavaScript concepts and practices.
