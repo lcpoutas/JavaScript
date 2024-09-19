@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filtrar peliculas por vistas o pendientes</title>
+  </head>
+  <body>
+    <script>
+      // creamos una clase para ir creando los objetos de las peliculas
+      class pelicula {
+        constructor(titulo, director, estado) {
+          (this.titulo = titulo),
+            (this.director = director),
+            (this.estado = estado);
+        }
+      }
+
+      // Filtramos las peliculas segun esten vistas o no
+
+      function filtro(peliculas) {
+        let vistas = [];
+        let pendientes = [];
+        let cont_V = 0;
+        let cont_P = 0;
+
+        for (pelicula of peliculas) {
+          if (pelicula.estado) {
+            vistas[cont_V] = pelicula.titulo;
+            cont_V++;
+          } else {
+            pendientes[cont_P] = pelicula.titulo;
+            cont_P++;
+          }
+        }
+        console.log(`has visto las siguientes peliculas : ${vistas}`);
+        console.log(
+          `te faltan por ver las siguientes peliculas : ${pendientes}`
+        );
+      }
+
+      var numero = parseInt(prompt("cuantas peliculas introduciras?"));
+      const peliculas = [];
+
+      // Vamos pregutando al usuario por las peliculas que quiere introducir y guardando los datos en el array peliculas
+
+      for (let i = 0; i < numero; i++) {
+        titulo = prompt("intoduce un titulo");
+        director = prompt("nombre del director");
+        estado = prompt("estado(1-vista o 2-pendiente)");
+        if (estado == 1) {
+          estado = true;
+        } else if (estado == 2) {
+          estado = false;
+        }
+        var film = new pelicula(titulo, director, estado);
+        peliculas[i] = film;
+      }
+
+      console.log(peliculas);
+
+      filtro(peliculas);
+    </script>
+  </body>
+</html>

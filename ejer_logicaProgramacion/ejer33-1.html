@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reloj</title>
+  </head>
+  <body>
+    <script>
+      class Reloj {
+        constructor() {
+          this.fecha = new Date();
+          this.horas = this.fecha.getHours();
+          this.minutos = this.fecha.getMinutes();
+          this.segundos = this.fecha.getSeconds();
+        }
+
+        actualizar(segundos) {
+          // Actualizar segundos
+
+          this.segundos += segundos;
+
+          // Actualizar minutos
+
+          if (this.segundos >= 60) {
+            this.minutos++;
+            this.segundos = 0;
+          }
+
+          // Actualizar Horas
+
+          if (this.minutos >= 60) {
+            this.horas++;
+            this.minutos = 0;
+          }
+
+          // Actualizar comienzo del dia
+
+          if (this.horas >= 24) {
+            this.horas = 0;
+          }
+        }
+
+        // metodo que mostrará la información de mi reloj en pantalla
+
+        mostrar() {
+          this.actualizar(1);
+          console.log(`${this.horas} : ${this.minutos} : ${this.segundos}`);
+        }
+
+        // método que enciende mi reloj
+
+        encender() {
+          setInterval(() => {
+            this.mostrar();
+          }, 1000);
+        }
+      }
+
+      // creo mi objeto mi_Reloj a partir de la clase Reloj
+
+      let mi_Reloj = new Reloj();
+
+      // Llamo al método encender para iniciar mi reloj
+
+      mi_Reloj.encender();
+    </script>
+  </body>
+</html>

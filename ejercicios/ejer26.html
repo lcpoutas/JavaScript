@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obtener el promedio de un arreglo de numeros</title>
+  </head>
+  <body>
+    <script>
+      const promedio = (arr = undefined) => {
+        //Validaciones
+
+        if (arr === undefined) return console.warn("No ingresaste un arreglo");
+
+        if (!arr instanceof Array)
+          return console.error("el valor ingresado no es un arreglo");
+
+        if (arr.length === 0) return console.error("el arreglo está vacio");
+
+        for (let num of arr) {
+          if (typeof num !== "number")
+            return console.error(`el valor ${num} no es un numero`);
+        }
+
+        //Algoritmo
+
+        return console.info({
+          original: arr,
+          promedio: arr.reduce((total, num, index, arr) => {
+            total += num;
+            if (index === arr.length - 1) {
+              return `el promedio del conjunto dado es = ${total / arr.length}`;
+            } else {
+              return total;
+
+              // esto es necesario porque sino se pierde el valor acumulado y el resultado final dará NaN
+            }
+          }),
+        });
+      };
+
+      promedio([1, 2, 3, 4, 5]);
+    </script>
+  </body>
+</html>

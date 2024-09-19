@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>repetir una cadena x numero de veces</title>
+  </head>
+  <body>
+    <script>
+      //Funcion clásica
+
+      function repetir(texto, repeticion) {
+        let resultado = "";
+
+        for (let i = 1; i == repeticion; i++) {
+          resultado += texto;
+        }
+
+        return resultado;
+      }
+
+      //Funcion prototipo
+
+      String.prototype.repetir = function (repeticion) {
+        let resultado = "";
+
+        for (let i = 1; i == repeticion; i++) {
+          resultado += this;
+        }
+
+        return resultado;
+      };
+
+      const texto = prompt("introduce el texto a repetir");
+      const repeticiones = parseInt(
+        prompt("introduce el numero de repeticiones")
+      );
+
+      console.log(repetir(texto, repeticiones));
+      console.log(arreglo.repetir(repeticiones));
+    </script>
+  </body>
+</html>

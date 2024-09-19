@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>convertir un numero decimal a binario y viceversa</title>
+  </head>
+  <body>
+    <script>
+      const convertir = (numero = undefined, base = undefined) => {
+        //declaracion de posibles errores
+        if (!numero) return console.warn("no hay numero");
+        if (typeof numero !== "number")
+          return console.warn("no ingresaste un numero");
+        if (!base) return console.warn("no hay base");
+        if (typeof base !== "number")
+          console.error("no has ingresado un valor correcto en la base");
+        if ((base !== 2) & (base !== 10))
+          console.error("el valor de la base no es ni 2 ni 10");
+
+        if (base === 2) {
+          return console.info(
+            `el numero ${numero} base ${base} es = ${parseInt(
+              numero,
+              base
+            )} base 10`
+          );
+        } else if (base === 10) {
+          return console.info(
+            `el numero ${numero} base ${base} es = ${number.toString(2)} base 2`
+          );
+        }
+
+        //parseInt(numero, base) convierte el numero en la base especificada a su correspondiente en base 10
+        // si en el metodo toString(base) especificamos la base, nos convierte ese numero decimal an la base especifcada
+      };
+
+      convertir(100, 2);
+    </script>
+  </body>
+</html>

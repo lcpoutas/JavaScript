@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>devolver el numero mas alto y el mas bajo de un array</title>
+  </head>
+  <body>
+    <script>
+      const MinMax = (arr = undefined) => {
+        //Validaciones
+
+        if (arr === undefined) return console.warn("No ingresaste un arreglo");
+
+        if (!arr instanceof Array)
+          return console.error("el valor ingresado no es un arreglo");
+
+        if (arr.length === 0) return console.error("el arreglo está vacio");
+
+        for (let num of arr) {
+          if (typeof num !== "number")
+            return console.error(`el valor ${num} no es un numero`);
+        }
+
+        //algoritmo
+
+        return console.info(
+          `Arreglo original: ${arr}\n Valor maximo: ${Math.max(
+            ...arr
+          )}\n Valor mínimo: ${Math.min(...arr)}`
+        );
+
+        // Para usar los metdos .min y .max es necesario usar el spread operator
+      };
+
+      MinMax([1, 2, 4, 5, 7, 8, 9, 12, 16, 20]);
+    </script>
+  </body>
+</html>

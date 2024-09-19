@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>validar si las palabra ingresada es un palindromo</title>
+  </head>
+  <body>
+    <script>
+      const palindromo = (palabra = "") => {
+        if (!palabra) return console.warn("no existe texto");
+
+        palabra = palabra.toLowerCase();
+        let inversa = palabra.split("").reverse().join("");
+
+        return palabra === reves
+          ? console.info("la palabra es un palindromo")
+          : console.info("la palabra no es un palindromo");
+      };
+
+      palindromo("salas");
+    </script>
+  </body>
+</html>

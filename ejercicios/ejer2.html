@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recortar X numero de caracteres</title>
+  </head>
+  <body>
+    <script>
+      const recortar = (cadena = "", long = undefined) =>
+        !cadena
+          ? console.warn("no existe cadena")
+          : longitud === undefined //concatenamos otro operador ternario
+          ? console.warn("no especificaste longitud")
+          : console.info(`la nueva cadena es ${cadena.slice(0, long)}`);
+
+      cadena = "Hola mundo";
+      longitud = 4;
+
+      recortar(cadena, longitud);
+    </script>
+  </body>
+</html>

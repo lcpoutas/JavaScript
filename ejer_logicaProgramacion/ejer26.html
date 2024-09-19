@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serie de fibonacci de un numero</title>
+  </head>
+  <body>
+    <script>
+      function fibo(num) {
+        let serie = [];
+
+        for (let i = 0; i < num; i++) {
+          if (i == 0) {
+            serie[i] = 0;
+          } else if (i == 1) {
+            serie[i] = 1;
+          } else {
+            serie[i] = serie[i - 1] + serie[i - 2];
+          }
+        }
+
+        return serie;
+      }
+
+      num = parseInt(prompt("escribe un numero"));
+
+      console.log(
+        `los ${num} primeros numeros de fibonacci de son ${fibo(num)}`
+      );
+    </script>
+  </body>
+</html>

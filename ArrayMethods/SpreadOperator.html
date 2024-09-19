@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const meses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+      ];
+
+      const meses2 = ["agosto", "septiembre", "octubre"];
+
+      const meses3 = ["noviembre", "diciembre"];
+
+      const carrito = [
+        { nombre: "Monitor 27 pulgadas", precio: 500 },
+        { nombre: "Television", precio: 100 },
+        { nombre: "Tablet", precio: 200 },
+        { nombre: "Audifonos", precio: 300 },
+        { nombre: "Teclado", precio: 400 },
+        { nombre: "Celular", precio: 700 },
+      ];
+
+      const producto = { nombre: "Disco duro", precio: 300 };
+
+      //Spread operator con un arreglo de indices
+
+      const meses4 = [...meses, "Agosto"];
+      console.log(meses4);
+
+      //Spread operator con un arreglo de objetos
+
+      const carrito2 = [...carrito, producto];
+      console.log(carrito2);
+    </script>
+  </body>
+</html>

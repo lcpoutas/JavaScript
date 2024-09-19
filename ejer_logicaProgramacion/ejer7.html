@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>devolver los numeros pares e impares de un array</title>
+  </head>
+  <body>
+    <script>
+      function impar(tamaño, numeros) {
+        let impar = 0;
+
+        for (i = 0; i < tamaño; i++) {
+          if (numeros[i] % 2 == 0) {
+            impar = impar + 0;
+          } else {
+            impar = impar + 1;
+          }
+        }
+
+        return impar;
+      }
+
+      var tamaño = parseInt(prompt("cuantos numeros vas a introducir"));
+      var numeros = []; //definimos el array vacio
+
+      for (let i = 0; i < tamaño; i++) {
+        numeros[i] = parseInt(prompt("introduce un numero"));
+      }
+
+      console.log(numeros);
+      document.write(numeros);
+
+      console.log(`en el array hay ${impar(tamaño, numeros)} numeros impares`);
+    </script>
+  </body>
+</html>

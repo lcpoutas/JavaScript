@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function lado(tamaño) {
+        let lado = "";
+
+        for (let i = 0; i < tamaño; i++) {
+          lado += "*";
+        }
+
+        return lado;
+      }
+
+      function cuadrado(tamaño) {
+        let dibujo = lado(tamaño) + "\n";
+
+        let contenido = "";
+
+        // Filas
+
+        for (let i = 0; i < tamaño - 2; i++) {
+          contenido = "*";
+
+          //Contenido HUeco
+
+          for (let j = 0; j < tamaño - 2; j++) {
+            contenido += " ";
+          }
+
+          // Pared derecha
+
+          contenido += "*";
+
+          // Añadir filas
+
+          dibujo += contenido + "\n";
+        }
+
+        // Lado de abajo
+
+        dibujo += lado(tamaño);
+
+        return dibujo;
+      }
+
+      tamaño = parseInt(prompt("que tamaño tiene el cuadrado"));
+
+      console.log(cuadrado(tamaño));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dada una cadena de texto devolver el caracter mas usado</title>
+  </head>
+  <body>
+    <script>
+      function contador(texto) {
+        //aplicamos split(' ') para separar las palabras en un array y luego join('') para juntar esas palabras en un texte habiendo eliminado los espacios
+        const caracteres = texto.split(" ").join("");
+        //Creamos un objeto que contendra las letras como propiedad y el numero de repeticiones como valor
+        let mapeoLetras = {};
+        let vocales = ["a", "e", "i", "o", "u"];
+        let maxLetra = "";
+        let maxRep = 0;
+
+        for (elemento of caracteres) {
+          if (!mapeoLetras[elemento]) {
+            // Si no existe esa letra en el objeto la creamos y le asignamos el contador uno
+            mapeoLetras[elemento] = 1;
+          } else {
+            // Si esa letra ya existe simplemente sumamos uno al contador
+            mapeoLetras[elemento]++;
+          }
+        }
+
+        for (letra in mapeoLetras) {
+          for (vocal of vocales) {
+            if (letra === vocal) {
+              if (mapeoLetras[vocal] > maxRep) {
+                maxRep = mapeoLetras[vocal];
+                maxLetra = vocal;
+              }
+            }
+          }
+        }
+
+        console.log(
+          `la vocal mas repetida es la ${maxLetra} con ${maxRep} repeticiones`
+        );
+      }
+
+      function totalVocales(texto) {
+        // match busca en el texto los caracteres coincidentes con los que especificamos dentro de la funcion regular
+        // y crea un array con los caracteres coincidentes, repitiendo sin importar si se repiten o no
+        vocales = texto.match(/[aeiou]/gi);
+
+        // samos el operador ternario para especificar que si no existe el array vocales porque no encontro coincidencias el resultado nos de 0,
+        // sino al ejecutar nos da error porque el metodo.length no puede aplicarse a arrays vacios
+        return vocales ? vocales.length : 0;
+      }
+
+      const frase = prompt("escribe aquí el texto");
+
+      contador(frase);
+      console.log(`el numero de vocales es ${totalVocales(frase)}`);
+    </script>
+  </body>
+</html>

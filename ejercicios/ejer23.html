@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>devolver en un objeto los numeros pares e impares de un array</title>
+  </head>
+  <body>
+    <script>
+      const separar = (arr = undefined) => {
+        //Validaciones
+
+        if (arr === undefined) return console.warn("No ingresaste un arreglo");
+
+        if (!arr instanceof Array)
+          return console.error("el valor ingresado no es un arreglo");
+
+        if (arr.length === 0) return console.error("el arreglo está vacio");
+
+        for (let num of arr) {
+          if (typeof num !== "number")
+            return console.error(`el valor ${num} no es un numero`);
+        }
+
+        //Algoritmo
+
+        return console.info({
+          pares: arr.filter((num) => num % 2 === 0),
+          impares: arr.filter((num) => num % 2 !== 0),
+        });
+      };
+
+      separar([1, 2, 3, 4, 5, 6]);
+    </script>
+  </body>
+</html>

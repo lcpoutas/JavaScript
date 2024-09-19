@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const meses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+      ];
+
+      const carrito = [
+        { nombre: "Monitor 27 pulgadas", precio: 500 },
+        { nombre: "Television", precio: 100 },
+        { nombre: "Tablet", precio: 200 },
+        { nombre: "Audifonos", precio: 300 },
+        { nombre: "Teclado", precio: 400 },
+        { nombre: "Celular", precio: 700 },
+      ];
+
+      // con un forEach
+
+      let resultado = "";
+
+      carrito.forEach((producto, index) => {
+        if (producto.nombre === "Tablet") resultado = carrito[index];
+      });
+
+      console.log(resultado);
+
+      // con .find - solo retorna el primer elemento que cumpla la condición
+
+      let resultado2 = "";
+
+      resultado2 = carrito.find((producto) => producto.nombre === "Tablet");
+      console.log(resultado2);
+    </script>
+  </body>
+</html>

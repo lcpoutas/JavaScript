@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contar cuantas consonantes y vocales tiene una frase</title>
+  </head>
+  <body>
+    <script>
+      function conteo(texto) {
+        let textoLimpio = texto
+          .toLowerCase()
+          .split("")
+          .filter((letra) => /[áéíóú\w]/gi.test(letra) && isNaN(letra))
+          // aquí filtramos el texto para que solo tenga letras, eliminando caracteres extraños, pero ademas conservamos las tildes;
+          // ademas le añadimos al filto que elimine todo aquello que sea un numero
+          .join("");
+
+        let contV = 0;
+        let contC = 0;
+
+        for (let letra of textoLimpio) {
+          if (/[áéíóúaeiou]/gi.test(letra)) {
+            // escribimos dentro de la expresion regular los objetivos del test
+            // y evaluamos letra con .test(letra)
+            contV++;
+          } else {
+            contC++;
+          }
+        }
+
+        console.log(`El texto tiene ${contV} vocales`);
+        console.log(`El texto tiene ${contC} consonantes`);
+      }
+
+      texto = prompt("escriba el texto");
+
+      conteo(texto);
+    </script>
+  </body>
+</html>

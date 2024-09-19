@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dividir un array en subarrays de x elementos</title>
+  </head>
+  <body>
+    <script>
+      function dividir(arreglo, numero) {
+        let arreglos = [];
+
+        for (elemento of arreglo) {
+          let ultimo = arreglos[arreglos.length - 1]; // reconocemos el ultimo elemento del array
+
+          if (!ultimo || ultimo.length === numero) {
+            // si no existe un ultimo elemento o si este es igual que el numero de elementos que queremos en el subarray,
+            // añadimos un nuevo subarray con el elemento que estamos recorriendo
+
+            arreglos.push([elemento]);
+          } else {
+            // añadimos el elemento que estamos recorriendo al array
+
+            ultimo.push(elemento);
+          }
+        }
+
+        return arreglos;
+      }
+
+      var tamaño = parseInt(prompt("di el tamaño del array principal"));
+      var arreglo = [];
+
+      for (let i = 0; i < tamaño; i++) {
+        arreglo[i] = prompt("introduce un numero en el arreglo");
+      }
+
+      let tamaño1 = parseInt(prompt("di el tamaño de lo subarrays"));
+
+      console.log(dividir(arreglo, tamaño1));
+    </script>
+  </body>
+</html>

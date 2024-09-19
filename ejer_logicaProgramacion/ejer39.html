@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>validar un email</title>
+  </head>
+  <body>
+    <script>
+      function evaluar(texto) {
+        let testMail = /^\w+@\w+\.\w+$/gi.test(texto);
+
+        // con esto comprobamos que el mail empiece por una palabra ^\w+
+        // luego que vaya un @, despues vienen otra palabra que puede repetirse \w+
+        // luego viene un . y despues puede venir otra palabra \w+
+        // el dolar $ indica el final de la expresion, esto ademas lo hacemos de manera global e indiferente gi
+
+        if (testMail === true) {
+          console.log("el mail es valido");
+        } else {
+          console.log("el mail no es valido");
+        }
+      }
+
+      email = prompt("escribe tu email");
+
+      evaluar(email);
+    </script>
+  </body>
+</html>

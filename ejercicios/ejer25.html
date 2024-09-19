@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliminar elementos duplicados en un array</title>
+  </head>
+  <body>
+    <script>
+      const duplicados = (arr = undefined) => {
+        //Validaciones
+
+        if (arr === undefined) return console.warn("No ingresaste un arreglo");
+
+        if (!arr instanceof Array)
+          return console.error("el valor ingresado no es un arreglo");
+
+        if (arr.length === 0) return console.error("el arreglo está vacio");
+
+        //Algoritmo
+
+        return console.info({
+          original: arr,
+          sinDuplicados: arr.filter(
+            (value, index, self) => self.indexOf(value) === index
+          ),
+          // El método indexOf() retorna el primer índice en el que se puede encontrar un elemento dado en el array
+
+          // En la funcion de filter definimos entre parentesis las variables que entrará en juego en la función.
+          // Esta funcion aplica el metodo index of al valor value para obtener el valor de self, el cual se comparara con el index
+        });
+
+        // Forma Alternativa (más óptima)
+
+        /*
+
+         return console.info({
+          original: arr,
+          sinDuplicados: [...new Set(arr)]
+          });
+
+        */
+      };
+
+      duplicados([1, 2, 3, "x", 3, 5, 1, "x"]);
+    </script>
+  </body>
+</html>

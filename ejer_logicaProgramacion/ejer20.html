@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ver si 2 textos son anagramas uno de otro</title>
+  </head>
+  <body>
+    <script>
+      function conteo(texto) {
+        let frase = texto
+          .replace(/[^\w]/gi, "") // ^\w - \w indica palabra y ^ es negacion; lo que decimos a qui es que todo aquello que no sea una palabra sea sustituido por la nada
+          .toLowerCase()
+          .split("")
+          .sort() // nos ordena los caracteres para poder comparar ambas cadenas
+          .join("");
+      }
+
+      function anagrama(letras1, letras2) {
+        if (letras1 === letras2) {
+          console.log("los textos introducidos son anagramas");
+        } else {
+          console.log("los textos introducidos no son anagramas");
+        }
+      }
+
+      var frase1 = prompt("introduzca el primer texto");
+      var frase2 = prompt("introduzca el segundo texto");
+
+      const letras1 = conteo(frase1);
+      const letras2 = conteo(frase2);
+
+      anagrama(letras1, letras2);
+    </script>
+  </body>
+</html>

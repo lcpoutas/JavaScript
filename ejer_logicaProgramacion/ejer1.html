@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla de multiplicar</title>
+  </head>
+  <body>
+
+    <h1>Calcular tabla de multiplicar</h1>
+    
+      <div id="tabla"></div>
+
+      <script>
+        //Funcion que me clcula e imprime la tabla de multiplicar
+
+        function calc(num) {
+
+          document.write(`<br> La tabla del ${num} <br><br>`)
+
+          for (let i = 1; i <= 10; i++) {
+            result = num * i;
+            document.write(`${num} x ${i} = ${result} <br>`) ;
+          }
+        }
+
+        var num = parseInt(prompt('di un numero'))
+
+        calc(num)
+
+      </script>
+    </form>
+  </body>
+</html>

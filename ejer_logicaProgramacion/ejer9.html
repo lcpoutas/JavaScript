@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Dados 2 arrays devolver otro con los elementos comunes a ambos
+    </title>
+  </head>
+  <body>
+    <script>
+      function coincidencias(arr1, arr2, tamaño1, tamaño2) {
+        var resultado = [];
+        var cont = 0;
+
+        for (num1 of arr1) {
+          for (num2 of arr2) {
+            if (num1 === num2) {
+              resultado[cont] = num1;
+              cont = cont + 1;
+            }
+          }
+        }
+
+        return resultado;
+
+        /* Otra forma de resolverlo seria mediante la siguiente funcion, 
+
+            function comparar(arr1,arr2){
+
+                const filtrado = arr1.filter(elemento => { 
+                    return arr2.includes(elemento);
+                }
+
+                return filtrado
+            }
+        */
+      }
+
+      var arr1 = [];
+      var arr2 = [];
+
+      var tamaño1 = parseInt(
+        prompt("cuantos numeros tendrá el primer arreglo")
+      );
+      var tamaño2 = parseInt(
+        prompt("cuantos numeros tendrá el segundo arreglo")
+      );
+
+      for (let i = 0; i < tamaño1; i++) {
+        arr1[i] = prompt("introduce un numero");
+      }
+
+      for (let i = 0; i < tamaño2; i++) {
+        arr2[i] = prompt("introduce un numero");
+      }
+
+      console.log(arr1);
+      console.log(arr2);
+
+      var final = coincidencias(arr1, arr2, tamaño1, tamaño2);
+
+      console.log(`los numeros coincidentes son ${final}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM (Document Objet Model)</title>
+
+    <style>
+      :root {
+        --yellow-color: yellow;
+        --dark-color: #222;
+      }
+
+      .card {
+        display: inline-block;
+        background-color: var(--dark-color);
+        color: var(--yellow-color);
+      }
+
+      .card figcaption {
+        padding: 1rem;
+      }
+
+      .rotate-45 {
+        transform: rotate(45);
+      }
+
+      .rotate-135 {
+        transform: rotate(135);
+      }
+
+      .opacity-80 {
+        opacity: 0.8;
+      }
+
+      .sepia {
+        filter: sepia(1);
+      }
+
+      .eventos-flujo div {
+        padding: 4rem;
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .uno {
+        background-color: yellow;
+      }
+
+      .dos {
+        background-color: gold;
+      }
+
+      .tres {
+        background-color: lightyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM (Documento Objet Model)</h1>
+
+    <h2>BOM (Browser Objet Model)</h2>
+
+    <h2>API Webs</h2>
+
+    <ul>
+      <li>Geolocation</li>
+      <li>Canvas</li>
+      <li>Eventos</li>
+      <li>Forms</li>
+      <li>AJAX/Fetch</li>
+    </ul>
+
+    <h3>Manejo DOM</h3>
+
+    <p id="p1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorem
+      exercitationem beatae explicabo rerum ad laudantium suscipit, ipsum,
+      adipisci, ut minus. Animi ducimus, quaerat distinctio quas libero dolores
+      officia natus!
+    </p>
+
+    <nav id="menu">
+      <li><a href="#">Sección 1</a></li>
+      <li><a href="#">Sección 2</a></li>
+      <li><a href="#">Sección 3</a></li>
+      <li><a href="#">Sección 4</a></li>
+      <li><a href="#">Sección 5</a></li>
+    </nav>
+
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
+
+    <a
+      class="link-dom"
+      href="dom.html"
+      data-id="1"
+      data-description="Document Objet Model"
+      style="background-color: yellow; color: black"
+    >
+      DOM
+    </a>
+
+    <section class="cards">
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/tech" alt="Tech" />
+        <figcaption>Tech</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/animals" alt="Animals" />
+        <figcaption>Animals</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/people" alt="People" />
+        <figcaption>people</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/arch" alt="Arch" />
+        <figcaption>arch</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/nature" alt="Nature" />
+        <figcaption>nature</figcaption>
+      </figure>
+    </section>
+
+    <!-- Las etiquetas template no se renderizan en el DOM, por eso no pararecen reflejadas en el inspector de elementos de los navegadores-->
+
+    <template id="template-card">
+      <figure class="'card">
+        <img />
+        <figcaption></figcaption>
+      </figure>
+    </template>
+
+    <h3>Eventos en JavaScript</h3>
+    <h4>Manejadores de eventos</h4>
+
+    <button onclick="alert('Hola')">Evento con atributos HTML</button>
+    <button onclick="holaMundo()">Evento con atributos HTML</button>
+    <br /><br />
+
+    <button id="evento-semantico">Eventon con manejador semantico</button>
+    <br /><br />
+
+    <button id="evento-multiple">Eventon con manejador multiple</button>
+    <br /><br />
+    <button id="evento-remover">
+      Remover eventos con manejadores multiples con dbclick
+    </button>
+    <br /><br />
+    <h4>Flujo de Eventos - Burbuja y Captura</h4>
+    <section class="eventos-flujo">
+      <div class="uno">
+        1
+        <div class="dos">
+          2
+          <div class="tres">
+            3
+            <a href="https://www.google.com/" target="_blank" rel="noopener"
+              >Google</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h3>Manejo del BOM</h3>
+
+    <button id="abrir-ventana">Abrir Ventana</button>
+    <br /><br />
+    <button id="cerrar-ventana">Cerrar Ventana</button>
+    <br /><br />
+    <button id="cerrar-ventana-abierta">Cerrar Ventana Abierta</button>
+    <br /><br />
+    <button id="imprimir-ventana">Imprimir Ventana</button>
+
+    <!-- <script src="DOM.js"></script> -->
+    <!-- <script src="DOM2.js"></script> -->
+    <!-- <script src="DOM3.js"></script> -->
+    <!-- <script src="DOM4.js"></script> -->
+    <!-- <script src="DOM5.js"></script> -->
+    <!-- <script src="DOM6.js"></script> -->
+    <!-- <script src="DOM7.js"></script> -->
+    <!-- <script src="DOM8.js"></script> -->
+    <!-- <script src="DOM9.js"></script> -->
+    <!-- <script src="DOM10.js"></script> -->
+    <!-- <script src="DOM11.js"></script> -->
+    <!-- <script src="DOM12.js"></script> -->
+    <!-- <script src="DOM13.js"></script> -->
+    <!-- <script src="DOM14.js"></script> -->
+    <!-- <script src="DOM15.js"></script> -->
+    <!-- <script src="DOM16.js"></script> -->
+    <!-- <script src="BOM.js"></script> -->
+    <script src="BOM1.js"></script>
+  </body>
+</html>

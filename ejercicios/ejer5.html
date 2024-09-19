@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      invertir los caracteres de las palabras de una cadena de texto
+    </title>
+  </head>
+
+  <body>
+    <script>
+      const invertir = (cadena = "") =>
+        !cadena
+          ? console.warn("no existe una cadena de texto")
+          : console.info(cadena.split("").reverse().join(""));
+
+      invertir("hola mundo");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sacar el valor mas alto y mas bajo de un array</title>
+  </head>
+  <body>
+    <script>
+      function MaxMin(numeros) {
+        let max = numeros[0];
+        let min = numeros[0];
+
+        for (numero of numeros) {
+          if (numero > max) {
+            max = numero;
+          } else if (numero < min) {
+            min = numero;
+          }
+        }
+
+        return [max, min];
+      }
+
+      var tamaño = parseInt(prompt("escriba el tamaño del array"));
+      var numeros = [];
+
+      for (let i = 0; i < tamaño; i++) {
+        numeros[i] = parseInt(prompt("escriba un numero"));
+      }
+
+      console.log(`el mayor numero introducido es ${MaxMin(numeros)[0]}`);
+      console.log(`el menor numero introducido es ${MaxMin(numeros)[1]}`);
+    </script>
+  </body>
+</html>

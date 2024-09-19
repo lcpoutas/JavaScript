@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programar una clase película</title>
+  </head>
+  <body>
+    <h1>Programa una clase pelicula</h1>
+
+    <p>
+      La clase recibirá un objeto al momento de instanciarse con los siguentes
+      datos: - id de la película en IMDB, titulo, director, año de estreno, país
+      o países de origen, géneros y calificación en IMBD. - Todos los datos del
+      objeto son obligatorios. - Valida que el id IMDB tenga 9 caracteres, los
+      primeros 2 sean letras y los 7 restantes números. - Valida que el título
+      no rebase los 100 caracteres. - Valida que el director no rebase los 50
+      caracteres. - Valida que el año de estreno sea un número entero de 4
+      dígitos. - Valida que el país o paises sea introducidos en forma de
+      arreglo. - Valida que los géneros sean introducidos en forma de arreglo. -
+      Valida que los géneros introducidos esten dentro de los géneros
+      aceptados*. - Crea un método estático que devuelva los géneros aceptados*.
+      - Valida que la calificación sea un número entre 0 y 10 pudiendo ser
+      decimal de una posición. - Crea un método que devuelva toda la ficha
+      técnica de la película. - Apartir de un arreglo con la información de 3
+      películas genera 3 instancias de la clase de forma automatizada e imprime
+      la ficha técnica de cada película. * Géneros Aceptados: Action, Adult,
+      Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama,
+      Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music,
+      Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport,
+      Talk-Show,Thriller, War, Western.
+    </p>
+
+    <script>
+      class pelicula {
+        constructor({
+          id,
+          titulo,
+          director,
+          estreno,
+          pais,
+          generos,
+          calificacion,
+        }) {
+          // Propiedades
+          this.id = id;
+          this.titulo = titulo;
+          this.director = director;
+          this.estreno = estreno;
+          this.pais = pais;
+          this.generos = generos;
+          this.calificacion = calificacion;
+          //Metodos
+          this.validarIMDB(id);
+          this.validarTitulo(titulo);
+          this.validarDirector(director);
+          this.validarEstreno(estreno);
+          this.validarPais(pais);
+          this.validarGeneros(generos);
+          this.validarCalificacion(calificacion);
+        }
+
+        validarCadena(propiedad, valor) {
+          if (!valor) return console.warn(`${propiedad} '${valor}' está vacio`);
+          if (typeof valor !== "string")
+            console.error(`${propiedad} '${valor}' no es un texto`);
+
+          return true; // si todo se cumple la funcion devuelve el booleano true
+        }
+
+        validarLongitudCadena(propiedad, valor, longitud) {
+          if (valor.length > longitud)
+            return console.error(
+              `${propoiedad} '${valor}' excede el numero de caracteres permitidos`
+            );
+
+          return true;
+        }
+
+        validarNumero(propiedad, valor) {
+          if (!valor) return console.warn("no hay numero");
+          if (typeof valor !== "number")
+            console.error("no has ingresado un numero");
+
+          return true;
+        }
+
+        validarArreglo(propiedad, valor) {
+          if (!valor) return console.warn(`${valor} está vacio`);
+
+          if (!(valor instanceof Array))
+            return console.error(`${valor} no es un arreglo`);
+
+          if (valor.length === 0)
+            return console.error(`${propiedad} no tiene datos`);
+
+          for (let cadena of valor) {
+            if (typeof cadena !== "string")
+              return console.error(
+                ` El valor ${cadena} ingresado, no es valido`
+              );
+          }
+
+          return true;
+        }
+
+        // Con static get generamos un atributo estatico
+
+        static get listaGeneros() {
+          return [
+            "Adventure",
+            "Animation",
+            "Biography",
+            "Comedy",
+            "Crime",
+            "Documentary",
+            "Drama",
+            "Family",
+            "Fantasy",
+            "Film Noir",
+            "Game-Show",
+            "History",
+            "Horror",
+            "Musical",
+            "Music",
+            "Mystery",
+            "News",
+            "Reality-TV",
+            "Romance",
+            "Sci-Fi",
+            "Short",
+            "Sport",
+            "Talk-Show",
+            "Thriller",
+            "War",
+            "Western",
+          ];
+        }
+
+        // Generamos un metodo estatico
+
+        /*  static generosAceptados() {
+          return console.info(
+            `los generos aceptados son ${pelicula.listaGeneros.join(",")}`
+          );
+        } */
+
+        validarIMDB(id) {
+          if (this.validarCadena("IMDB id", id)) {
+            // En esta expresion regular se expone que los dos primeros caracteres del texto han de ser letras de la a a la z '([a-z])(2)'
+            // Luego ponemos que los siguientes 7 caracteres han de ser numeros del 0 al 9 '([0-9])(7)'
+            // El simbolo ^indca que no debe haber nada antes de esa expresion y el $ que no debe haber nada despues
+            // En nuestro if decimos que si no se cumple esa expresion regular salte el siguiente error
+            if (!/^([a-z]){2}([0-9]){7}$/.test(id)) {
+              return console.error(
+                `IMDB id '${id}' no es valido, debe tener 9 caracteres, los 2 primeros letras y los 7 ultimos numeros`
+              );
+            }
+          }
+        }
+
+        validarTitulo(titulo) {
+          if (this.validarCadena("titulo", titulo)) {
+            this.validarLongitudCadena("titulo", titulo, 100);
+          }
+        }
+
+        validarDirector(director) {
+          if (this.validarCadena("director", director)) {
+            this.validarLongitudCadena("director", director, 50);
+          }
+        }
+
+        validarEstreno(estreno) {
+          if (this.validarNumero("estreno", estreno)) {
+            if (!/^([0-9]){4}$/.test(estreno)) {
+              return console.error(
+                `IMDB id '${estreno}' no es valido, ha de tener 4 numeros`
+              );
+            }
+          }
+        }
+
+        validarPais(pais) {
+          this.validarArreglo("pais", pais);
+        }
+
+        validarGeneros(generos) {
+          if (this.validarArreglo("generos", generos)) {
+            for (let genero of generos) {
+              //console.log(genero, pelicula.listaGeneros.includes(genero));
+
+              //En este caso como estamos en presencia de u atributo estatico no hace falta instanciarlo, por lo que
+              // no susaremos this.atributo, sino que pondremos directamente la clase 'clase.atributo'
+
+              if (!pelicula.listaGeneros.includes(genero)) {
+                console.error(`Generos(s) incorrectos '${generos.join(",")}'`);
+                pelicula.generosAceptados();
+              }
+            }
+          }
+        }
+
+        validarCalificacion(calificacion) {
+          if (this.validarNumero("calificacion", calificacion)) {
+            return calificacion < 0 || calificacion > 10
+              ? console.error("la calificacion excede el rango de o a 10")
+              : (this.calificacion = calificacion.toFixed(1));
+          }
+        }
+
+        fichaTecnica() {
+          console.info(
+            `Ficha Técnica : \n Título : ${this.titulo} \n Director : ${
+              this.director
+            } \n Año : ${this.estreno} \n País : ${this.pais.join(
+              "-"
+            )} \n Generos : ${this.generos.join(",")} \n Calificación : ${
+              this.calificacion
+            } \n IMBD id : ${this.id} `
+          );
+        }
+      }
+
+      const mispeliculas = [
+        {
+          id: "tt1234567",
+          titulo: "pelicula",
+          director: "manolo",
+          estreno: 1960,
+          pais: ["España"],
+          generos: ["Comedy", "Horror", "Sci-Fi"],
+          calificacion: 8.123,
+        },
+        {
+          id: "tt1234567",
+          titulo: "cine",
+          director: "manolo",
+          estreno: 1960,
+          pais: ["España"],
+          generos: ["Comedy", "Horror", "Sci-Fi"],
+          calificacion: 8.123,
+        },
+        {
+          id: "tt1234567",
+          titulo: "pelicula",
+          director: "manolo",
+          estreno: 1960,
+          pais: ["España"],
+          generos: ["Comedy", "Horror", "Sci-Fi"],
+          calificacion: 8.123,
+        },
+      ];
+
+      // aquí aplicamos el metodo for each a mi arreglo mispeliculas para que en cada elemento del arreglo se instancie una nueva clase y se aplique a esta clase el métod fichaTecnica
+
+      mispeliculas.forEach((elemento) => new pelicula(elemento).fichaTecnica());
+    </script>
+  </body>
+</html>

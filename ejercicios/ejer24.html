@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      a partir de un array construir un objeto con los numeros ordenados de
+      manera ascendentes y otro de manera descendente
+    </title>
+  </head>
+  <body>
+    <script>
+      const ordenar = (arr = undefined) => {
+        //Validaciones
+
+        if (arr === undefined) return console.warn("No ingresaste un arreglo");
+
+        if (!arr instanceof Array)
+          return console.error("el valor ingresado no es un arreglo");
+
+        if (arr.length === 0) return console.error("el arreglo está vacio");
+
+        for (let num of arr) {
+          if (typeof num !== "number")
+            return console.error(`el valor ${num} no es un numero`);
+        }
+
+        //Algoritmo
+
+        return console.info({
+          arr,
+          asc: arr.map((num) => num).sort(), //.sort ordena de manera ascendente los numeros
+          desc: arr
+            .map((num) => num)
+            .sort()
+            .reverse(),
+        });
+      };
+
+      ordenar([1, 2, 3, 6, 4, 8, 0, 9]);
+    </script>
+  </body>
+</html>

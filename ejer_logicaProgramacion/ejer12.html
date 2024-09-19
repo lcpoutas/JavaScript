@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Escribir una lista de numeros de un objetivo hasta cero con saltos de 8
+    </title>
+  </head>
+  <body>
+    <script>
+      function hastaCero(num) {
+        let resultado = `--- de ${num} hasta cero ---`;
+
+        while (num > 0) {
+          resultado = `- nº ${num}`;
+
+          num -= 8;
+        }
+
+        if (num <= 0) {
+        }
+
+        resultado = `- nº 0`;
+
+        return resultado;
+      }
+
+      num = parseInt(prompt("diga un numero"));
+
+      console.log(hastaCero(num));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calculadora(num1, num2, opcion) {
+        let resultado = 0;
+
+        switch (opcion) {
+          case "1":
+            resultado = num1 + num2;
+            break;
+          case "2":
+            resultado = num1 - num2;
+            break;
+          case "3":
+            resultado = num1 * num2;
+            break;
+          case "4":
+            resultado = num1 / num2;
+            break;
+        }
+
+        return resultado;
+      }
+
+      var num1 = parseInt(prompt("di el primer numero de la operacion"));
+      var num2 = parseInt(prompt("di el segundo numero de la operacion"));
+      var opcion = prompt(
+        "elije la operacion : 1-suma 2-resta 3-multiplicacion 4-division"
+      );
+
+      console.log(calculadora(num1, num2, opcion));
+    </script>
+  </body>
+</html>

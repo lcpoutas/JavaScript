@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Invertir el orden de los caracteres de una cadena de texto sin usar
+      metodos propios de js
+    </title>
+  </head>
+  <body>
+    <script>
+      function invertir(palabra) {
+        let invertido = "";
+
+        for (let letra of letras) {
+          invertido = letra + invertido;
+        }
+        return invertido;
+      }
+
+      palabra = prompt("escriba una palabra");
+
+      console.log(invertir(palabra));
+    </script>
+  </body>
+</html>

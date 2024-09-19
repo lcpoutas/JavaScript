@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>decir el tipo de angulo</title>
+  </head>
+  <body>
+    <script>
+      function angulo(num) {
+        let resultado = "";
+
+        if (num < 90) {
+          resultado = "angulo agudo";
+        } else if (num === 90) {
+          resultado = "angulo recto";
+        } else if (num > 90 && num < 180) {
+          resultado = "angulo obtuso";
+        } else if (num === 180) {
+          resultado = "angulo llano";
+        } else if (num > 180) {
+          resultado = "angulo concavo";
+        } else if (num === 360) {
+          resultado = "angulo completo";
+        }
+
+        return resultado;
+      }
+
+      numero = parseInt(prompt("escribe el valor de tu angulo"));
+
+      if (numero <= 360) {
+        console.log(angulo(numero));
+      } else {
+        console.log(angulo(numero % 360));
+      }
+    </script>
+  </body>
+</html>

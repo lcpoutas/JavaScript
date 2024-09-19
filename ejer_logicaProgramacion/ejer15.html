@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dada una cadena de texto devolver el caracter mas usado</title>
+  </head>
+  <body>
+    <script>
+      function contador(texto) {
+        //aplicamos split(' ') para separar las palabras en un array y luego join('') para juntar esas palabras en un texte habiendo eliminado los espacios
+        const caracteres = texto.split(" ").join("");
+        //Creamos un objeto que contendra las letras como propiedad y el numero de repeticiones como valor
+        let mapeoLetras = {};
+        let maxLetra = "";
+        let maxRep = 0;
+
+        for (elemento of caracteres) {
+          if (!mapeoLetras[elemento]) {
+            // Si no existe esa letra en el objeto la creamos y le asignamos el contador uno
+            mapeoLetras[elemento] = 1;
+          } else {
+            // Si esa letra ya existe simplemente sumamos uno al contador
+            mapeoLetras[elemento]++;
+          }
+        }
+
+        for (letra in mapeoLetras) {
+          if (mapeoLetras[letra] > maxRep) {
+            maxRep = mapeoLetras[letra];
+            maxLetra = letra;
+          }
+        }
+
+        console.log(
+          `la letra mas repetida es la ${maxLetra} con ${maxRep} repeticiones`
+        );
+      }
+
+      const frase = prompt("escribe aquí el texto");
+
+      contador(frase);
+    </script>
+  </body>
+</html>

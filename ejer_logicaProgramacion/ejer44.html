@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      devolver los elementos de un array compuestos por 2 o mas palabras
+    </title>
+  </head>
+  <body>
+    <script>
+      function DosPalabras(lista) {
+        let nuevaLista = [];
+
+        for (palabra of lista) {
+          // Aquí separamos los elementos de palabra por los espacios para obtener las
+          // palabras que la componen, y vemos la longitud de ese nuevo array formado,
+          // si esta longitud es >= 2 quiere decir que tenemos 2 o mas palabras
+          if (palabra.split(" ").length >= 2) {
+            nuevaLista.push(palabra);
+          }
+        }
+
+        return nuevaLista;
+      }
+
+      lista = ["hola", "Nueva york", "soy", "de", "San francisco"];
+
+      console.log(DosPalabras(lista));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function extremos(tamaño) {
+        let extremo = "";
+
+        for (let i = 0; i < tamaño; i++) {
+          extremo += " *";
+        }
+
+        return extremo;
+      }
+
+      function centro(tamaño) {
+        let centro = "";
+
+        for (let i = 0; i < tamaño; i++) {
+          if (i == 0 || i == tamaño - 1) {
+            centro += "*";
+          } else {
+            centro += " &nbsp&nbsp";
+          }
+        }
+        console.log(centro);
+        return centro;
+      }
+
+      tamaño = parseInt(prompt("que tamaño tiene el cuadrado"));
+
+      for (let i = 0; i < tamaño; i++) {
+        if (i == 0 || i == tamaño - 1) {
+          document.write(`${extremos(tamaño)} <br>`);
+        } else {
+          document.write(`${centro(tamaño)} <br>`);
+        }
+      }
+    </script>
+  </body>
+</html>

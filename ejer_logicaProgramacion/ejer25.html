@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function mayus(frase) {
+        let frase1 = frase.toUpperCase();
+        let cont = 0;
+
+        for (letra of frase) {
+          for (letra1 of frase1) {
+            if (letra === letra1) {
+              cont++;
+            }
+          }
+        }
+
+        if (cont === 0) {
+          console.log(frase);
+        } else {
+          console.log(frase1);
+        }
+      }
+
+      frase = prompt("escriba aquí su frase");
+
+      mayus(frase);
+    </script>
+  </body>
+</html>

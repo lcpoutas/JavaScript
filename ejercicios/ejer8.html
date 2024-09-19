@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliminar cierto patron de caracteres</title>
+  </head>
+  <body>
+    <script>
+      const eliminar = (texto = "", patron = "") =>
+        !texto
+          ? console.warn("no existe texto")
+          : !patron
+          ? console.warn("no existe patron")
+          : console.info(info.replace(new RegExp(patron, "ig"), ""));
+
+      eliminar("Hola, me llamo carlos", "a");
+
+      /* 
+        new RegExp sive para crear una expresion regular, 
+        donde el primer parametro es el contenido de la expresion 
+        y el segundo son banderas que le indica ciertas instrucciones
+        */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function media(lista, numero) {
+        let suma = 0;
+        let resultado = 0;
+
+        for (elemento of lista) {
+          suma += elemento;
+        }
+
+        resultado = suma / numero;
+
+        return resultado;
+      }
+
+      const tamaño = parseInt(
+        prompt("introduzca cuantos numeros formaran la media")
+      );
+
+      var lista = [];
+
+      for (let i = 0; i < tamaño; i++) {
+        lista[i] = parseInt(prompt("introduzca un numero"));
+      }
+
+      console.log(
+        `la media de los numeros introducidos es = ${media(lista, tamaño)}`
+      );
+    </script>
+  </body>
+</html>

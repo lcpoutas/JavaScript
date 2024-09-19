@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reloj metodo rápido</title>
+  </head>
+  <body>
+    <script>
+      // En esta primera funcion construimos el reloj y actuanlizamos
+      // cada segundo a partir del objeto date y sus metodos asociados
+
+      function relojRapido() {
+        // El método setInterval() llama a una función a intervalos específicos (en milisegundos).
+        // El método setInterval() continúa llamando a la función hasta que se llama a
+        // clearInterval() o se cierra la ventana.
+
+        setInterval(() => {
+          const fecha = new Date();
+          const horas = fecha.getHours();
+          const minutos = fecha.getMinutes();
+          const segundos = fecha.getSeconds();
+
+          console.log(`${horas} : ${minutos} : ${segundos}`);
+        }, 1000);
+      }
+
+      relojRapido();
+    </script>
+  </body>
+</html>

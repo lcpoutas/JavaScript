@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>invertir un numero</title>
+  </head>
+  <body>
+    <script>
+      var num = parseInt(prompt("escribe un numero"));
+
+      invertido =
+        parseInt(num.toString().split("").reverse().join("")) * Math.sign(num);
+
+      // El math.sing sive para multiplicar el resultado por el signo del valor introducido y así evitar la problematica de los numeros negativos
+
+      console.log(`este es el numero inicial ${num}`);
+      console.log(`este es el numero final ${invertido}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saber si un numero es primo</title>
+  </head>
+  <body>
+    <script>
+      const primo = (numero = undefined) => {
+        //declaracion de posibles errores
+
+        if (numero === 0) return console.warn("el numero no puede ser cero");
+        if (!numero) return console.warn("no hay numero");
+        if (Math.sign(numero) === -1)
+          console.log("no se pueden ingresar numeros negativos");
+        if (typeof numero !== number)
+          console.error("no has ingresado un numero");
+        if (numero === 1) return console.warn("el numero no puede ser 1");
+
+        let div = 0;
+
+        //calculo de divisores del numero
+
+        for (i = number; i > 1; i++) {
+          if (number % i === 0) {
+            div++;
+            // si div en algun momento es mayor de 2 entonces el ciclo se rompe para no consumir recursos
+            if (div > 2) {
+              return console.info(`el numero ${numero} no es primo`);
+            }
+          } else {
+            return console.info(`el numero ${numero} es primo`);
+          }
+        }
+      };
+
+      primo(13); // el numero 13 si es primo
+    </script>
+  </body>
+</html>

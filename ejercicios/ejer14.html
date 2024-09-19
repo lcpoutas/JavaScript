@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transformar grados celsius a fahrenheigt</title>
+  </head>
+  <body>
+    <script>
+      const conversor = (numero = undefined, unidad = undefined) => {
+        //declaracion de posibles errores
+        if (!numero) return console.warn("no hay numero");
+        if (typeof numero !== "number")
+          return console.warn("no ingresaste un numero");
+        if (!unidad) return console.warn("no hay unidades");
+        if (typeof unidad !== "string")
+          console.error("no has ingresado una letra");
+        if ((unidad !== "c") & (unidad !== "f"))
+          console.error("no especificaste bien la unidad");
+
+        return unidad.toLowerCase() === "c"
+          ? console.log(
+              `${numero} Celsius son ${numero * (9 / 5) + 32} Fahrenheigt`
+            )
+          : console.log(
+              `${numero} Fahrenheigt son ${((numero - 32) * (5 / 9)).toFixed(
+                2
+              )} celsius`
+            );
+
+        // .toFixed sirve para especificar cuantos decimales quieres imprimir
+      };
+
+      conversor(12, "f");
+    </script>
+  </body>
+</html>

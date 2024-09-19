@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      dado una lista de alumnos, decir cuales están suspensos y cuales aprobados
+    </title>
+  </head>
+  <body>
+    <script>
+      function evaluar(nota) {
+        let resultado = "";
+
+        if (nota < 5) {
+          resultado = "suspenso";
+        } else if (nota >= 5) {
+          resultado = "aprobado";
+        }
+
+        return resultado;
+      }
+
+      class alumno {
+        constructor(nombre, nota) {
+          (this.nombre = nombre), (this.nota = nota);
+        }
+      }
+
+      var numero = parseInt(prompt("cuantos alumnos vas a introducir"));
+      var alumnos = [];
+      var nota = 0;
+      var nombre = "";
+
+      for (let i = 0; i < numero; i++) {
+        nombre = prompt("escribe el nombre del alumno");
+        nota = parseInt(prompt("escriba la nota del alumno"));
+        alumnos[i] = new alumno(nombre, nota);
+      }
+
+      for (let i = 0; i < numero; i++) {
+        console.log(
+          ` El alumno ${alumnos[i].nombre} ha sacado un ${evaluar(
+            alumnos[i].nota
+          )}`
+        );
+      }
+    </script>
+  </body>
+</html>

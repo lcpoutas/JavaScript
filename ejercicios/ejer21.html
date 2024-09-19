@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dado un array obtener otro con sus cuadrados</title>
+  </head>
+  <body>
+    <script>
+      const cuadrados = (arr = undefined) => {
+        if (arr === undefined) return console.warn("No ingresaste un arreglo");
+
+        if (!arr instanceof Array)
+          return console.error("el valor ingresado no es un arreglo");
+
+        if (arr.length === 0) return console.error("el arreglo está vacio");
+
+        for (let num of arr) {
+          if (typeof num !== "number")
+            return console.error(`el valor ${num} no es un numero`);
+        }
+
+        // Usamos el metodo .map para crear un nuevo arreglo a partir de la funcion especificada y del arreglo donde se aplica
+
+        const newArr = arr.map((el) => el * el);
+
+        return console.info(
+          `Arreglo original ${arr} \n Arreglo cuadrado: ${newArr}`
+        );
+
+        // \n hace un salto de linea y \\n hace un doble salto de linea
+      };
+
+      cuadrados([1, 2, 3, 4, 5]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reptir un text x veces</title>
+  </head>
+  <body>
+    <script>
+      const repetir = (texto = "", veces = undefined) => {
+        // si solo tenemos una linea de codico en el if podemos ponerlo
+        // directamente a continuacion de la consición sin necesidad de llaves
+
+        // Primero definimos condiciones de error en la funcion
+
+        if (!texto) return console.warn("no existe texto");
+
+        if (veces === undefined)
+          return console.warn("no definiste el n de repeticiones");
+
+        if (veces === 0)
+          return console.error("el n de repeticiones no puede ser 0");
+
+        if (Math.sign(veces) === -1)
+          return console.error("el n de repeticiones no puede ser negativo");
+
+        for (let i = 1; i <= veces; i++) {
+          console.info(`${texto}, ${i}`);
+        }
+      };
+
+      repetir("hola mundo", 3);
+    </script>
+  </body>
+</html>

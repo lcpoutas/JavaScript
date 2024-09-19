@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD API REST FETCH</title>
+  </head>
+  <body>
+    <h1>CRUD API REST FETCH</h1>
+    <section class="crud">
+      <article>
+        <h2 class="crud-title">Agregar alumno</h2>
+        <form class="crud-form">
+          <input type="text" name="nombre" placeholder="Nombre" required />
+          <br />
+          <input type="text" name="arma" placeholder="Arma" required />
+          <br />
+          <input type="submit" value="enviar" />
+          <input type="hidden" name="id">
+        </form>
+      </article>
+      <article>
+        <h2>Ver Alumnos</h2>
+        <table class="crud-table" >
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Arma</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>            
+            </tbody>
+        </tableclass>
+      </article>
+    </section>
+    <template id="crud-template">
+        <tr>
+            <td class="nombre"></td>
+            <td class="arma"></td>
+            <td>
+                <button class="editar">Editar</button>
+                <button class="eliminar">Eliminar</button>
+            </td>
+        </tr>
+    </template>
+    <script>
+        const d = document,
+        $table = d.querySelector('.crud-table'),
+        $form = d.querySelector('.crud-form'),
+        $title = d.querySelector('.crud-title'),
+        $template = d.getElementById('crud-template').content,
+        $fragment = d.createDocumentFragment()
+
+        const getAllAlumnos = async () =>{
+          try{
+            let answer = await fetch('http://localhost:5555/Alumnos'),
+            json = await answer.json()
+
+            if(!answer.ok) throw {status: answer.status, statusText: res.statusText}
+
+            json.forEach( el => {
+              $template.querySelector('.nombre').textContent = el.nombre;
+              $template.querySelector('.arma').textContent = el.arma;
+              $template.querySelector('.editar').dataset.id = el.id;
+              $template.querySelector('.editar').dataset.nombre = el.nombre;
+              $template.querySelector('.editar').dataset.arma = el.arma;
+              $template.querySelector('.eliminar').dataset.id = el.id;
+              // vamos clonando los elementos que contiene template para que cada elemento no sobreescriba al anterior, para ello primero generamos un clon con 
+              // importNode y luego asignamos a fragment cada clon
+
+              let $clone = d.importNode($template, true);
+              $fragment.appendChild($clone);
+
+            })
+
+            // añadimos los elementos al body de la tabla del html
+
+            $table.querySelector('tbody').appendChild($fragment);
+
+          } catch(err){
+            let message = err.statusText || 'Ocurrio un error'
+            $table.insertAdjacentElement('after', `<p><b> ${err.status}:${message} </b></p>`);
+          }
+        }
+
+        d.addEventListener('DOMContentLoaded', getAllAlumnos) // Si ponemos get ALLAlumnos como funcion 'getAllAlumnos()' nos dara un error del tipo -> TypeError: Property 'handleEvent' is not callable
+
+        // El input oculto con mane id tiene valor nos indica que vamos a editar el contenido, si este no tiene valor haremos una creacion de contenido
+
+        d.addEventListener('submit', async e => {
+          if(e.target === $form){
+            e.preventDefault()
+
+            if(!e.target.id.value){
+              // Create - POST
+              
+              try{
+                let options = {
+                  method: 'POST',
+                  headers: {
+                    'Content-type': 'application/json; charset=utf-8'
+                  },
+                  body: JSON.stringify({
+                    nombre: e.target.nombre.value,
+                    arma: e.target.arma.value
+                  })
+                },
+                answer = await fetch('http://localhost:5555/Alumnos', options),
+                json = await answer.json();
+
+                if(!answer.ok) throw {status: answer.status, statusText: res.statusText}
+
+                location.reload() //actualiza la interfaz de la grafica
+
+              }catch(err){
+                let message = err.statusText || 'Ocurrio un error'
+                $form.insertAdjacentElement('afterend', ` <p><b> ${err.status}: ${message} </b></p>`)
+              }
+            }else{
+              // Update - PUT
+              
+              try{
+                let options = {
+                  method: 'PUT',
+                  headers: {
+                    'Content-type': 'application/json; charset=utf-8'
+                  },
+                  body: JSON.stringify({
+                    nombre: e.target.nombre.value,
+                    arma: e.target.arma.value
+                  })
+                },
+                answer = await fetch(`http://localhost:5555/Alumnos/${e.target.id.value}`, options),
+                json = await answer.json();
+
+                if(!answer.ok) throw {status: answer.status, statusText: answer.statusText}
+
+                location.reload() // actualiza la interfaz gafrica
+
+              }catch(err){
+                let message = error.statusText || 'Ocurrio un error'
+                $form.insertAdjacentElement('afterend', ` <p><b> ${err.status}: ${message} </b></p>`)
+              }
+            }
+          }
+        })
+
+       d.addEventListener('click', async e => {
+           // modificar los valores
+
+           if(e.target.matches('.editar')){
+            $title.textContent = 'Editar'
+            $form.nombre.value = e.target.dataset.nombre;
+            $form.arma.value = e.target.dataset.arma;
+            $form.id.value = e.target.dataset.id;
+            }
+
+             // Eliminar elementos
+
+            if(e.target.matches('.eliminar')){
+              let isDelete = confirm(`Estas seguro de querer eliminar ${e.target.dataset.id}?`);
+
+              if (isDelete){
+                // Delete - DELETE
+                try{
+                  let options = {
+                    method: 'DELETE',
+                    headers: {
+                      'Content-type': 'application/json; charset=utf-8'
+                    }                   
+                  },
+                  answer = await fetch(`http://localhost:5555/Alumnos/${e.target.dataset.id}`, options),
+                  json = await answer.json();
+  
+                  if(!answer.ok) throw {status: answer.status, statusText: answer.statusText}
+  
+                  location.reload() // actualiza la interfaz gafrica
+  
+                }catch(err){
+                  let message = err.statusText || 'Ocurrio un error'
+                  $form.insertAdjacentElement('afterend', ` <p><b> ${err.status}: ${message} </b></p>`)
+                }
+
+              }
+            }
+        })
+    </script>
+  </body>
+</html>

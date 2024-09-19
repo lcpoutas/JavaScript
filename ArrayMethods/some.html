@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const meses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+      ];
+
+      const carrito = [
+        { nombre: "Monitor 27 pulgadas", precio: 500 },
+        { nombre: "Television", precio: 100 },
+        { nombre: "Tablet", precio: 200 },
+        { nombre: "Audifonos", precio: 300 },
+        { nombre: "Teclado", precio: 400 },
+        { nombre: "Celular", precio: 700 },
+      ];
+
+      //comprobar si existe un elemento en el array
+
+      meses.forEach((meses) => {
+        if (mes === "enero") console.log(`${meses} si existe `);
+      });
+
+      const result = meses.includes("diciembre");
+      console.log(result);
+
+      // En un arreglo de objetos se utiliza .some
+
+      const exist = carrito.some((prod) => {
+        return prod.nombre === "celular";
+      });
+      console.log(exist);
+
+      // Arreglo tradicional con .some
+
+      const exist2 = meses.some((mes) => {
+        mes === "agosto";
+      });
+      console.log(exist2);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mostrar divisores de un numero</title>
+  </head>
+  <body>
+    <script>
+      function divisores(num) {
+        let div = [];
+        let cont = 0;
+
+        for (let i = num; i > 0; i--) {
+          if (num % i === 0) {
+            div[cont] = i;
+            cont++;
+          }
+        }
+
+        return div;
+      }
+
+      var numero = parseInt(prompt("escriba un numero"));
+
+      console.log(`los divisores de ${numero} son = ${divisores(numero)}`);
+    </script>
+  </body>
+</html>

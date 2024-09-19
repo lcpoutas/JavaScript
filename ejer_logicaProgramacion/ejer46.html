@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function SubString(palabra) {
+        let conjunto = [];
+
+        // Vamos cortando la palabra y creando los subconjuntos posibles
+
+        for (i = 0; i < palabra.length; i++) {
+          for (j = i + 1; j < palabra.length + 1; j++) {
+            conjunto.push(palabra.substring(i, j));
+          }
+        }
+
+        //Eliminaos posibles duplicados que existan en el array creado
+
+        for (i = 0; i < conjunto.length; i++) {
+          for (j = i + 1; j < conjunto.length + 1; j++) {
+            if (conjunto[i] === conjunto[j]) {
+              conjunto.splice(j, j + 1);
+            }
+          }
+        }
+
+        console.log(conjunto);
+      }
+
+      palabra = prompt("introduzca una palabra");
+
+      SubString(palabra);
+    </script>
+  </body>
+</html>

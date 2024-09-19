@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function mayus(texto) {
+        // Primero creamos un array con cada una de las palabras del texto
+
+        let palabra = texto.split(" ");
+
+        //Luego recorremos el array ponemos en mayuscucla la primera letra de cada palabra
+        for (let i = 0; i < palabra.length; i++) {
+          palabra[i] = palabra[i][0].toUpperCase() + palabra[i].substr(1);
+          //[i] - hace referencia a la posicion de la palabra,
+          //[0] - hace referencia a la posicion de la primera letra de la palabra
+          //substr(1) - hece referencia a una subcadena que va desde la posicion 1 hasta el final, la cual concatenamos con la primera letra para formar la palabra
+        }
+
+        let frase = palabra.join(" ");
+
+        console.log(frase);
+      }
+
+      const texto = prompt("escriba aquí su texto");
+
+      mayus(texto);
+    </script>
+  </body>
+</html>

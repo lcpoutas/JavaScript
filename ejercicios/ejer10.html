@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>saber si tenemos un numero capicua</title>
+  </head>
+  <body>
+    <script>
+      const capicua = (numero = 0) => {
+        //declaracion de alertas o errores
+        if (!numero) return console.warn("no hay numero");
+        if (typeof numero !== "number")
+          console.error("no has ingresado un numero");
+
+        numero = numero.toString();
+        reves = numero.split("").reverse().join();
+
+        return numero === reves
+          ? console.log("si es capicua")
+          : console.log("no es capicua");
+      };
+
+      capicua(2002); //si es capicua
+    </script>
+  </body>
+</html>

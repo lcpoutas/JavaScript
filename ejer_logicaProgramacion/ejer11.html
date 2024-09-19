@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function censura(texto, objetivo) {
+        tamaño = texto.length;
+
+        for (let i = 0; i < tamaño; i++) {
+          if (texto[i] === objetivo) {
+            texto[i] = "[-CENSURADO-]";
+          }
+        }
+        return texto;
+      }
+
+      texto = prompt("escriba aqui el texto").split(" ");
+      palabra = prompt("escriba aquí la palabra objetivo");
+
+      if (texto == "" && palabra == "") {
+        console.log("no puedes leer el texto y la busqueda");
+      } else if (palabra == "" && texto != "") {
+        console.log("no puedes leer la busqueda");
+      } else if (palabra != "" && texto == "") {
+        console.log("no puedes leer el texto");
+      } else {
+        console.log(censura(texto, palabra).join(" "));
+      }
+    </script>
+  </body>
+</html>

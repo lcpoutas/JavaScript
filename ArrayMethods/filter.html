@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const meses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+      ];
+
+      const carrito = [
+        { nombre: "Monitor 27 pulgadas", precio: 500 },
+        { nombre: "Television", precio: 100 },
+        { nombre: "Tablet", precio: 200 },
+        { nombre: "Audifonos", precio: 300 },
+        { nombre: "Teclado", precio: 400 },
+        { nombre: "Celular", precio: 700 },
+      ];
+
+      //Crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.
+
+      let resultado;
+
+      resultado = carrito.filter((producto) => producto.precio > 400);
+      console.log(resultado);
+      resultado = carrito.filter((producto) => producto.precio > 600);
+      console.log(resultado);
+      resultado = carrito.filter((producto) => producto.nombre !== "audifonos");
+      console.log(resultado);
+    </script>
+  </body>
+</html>

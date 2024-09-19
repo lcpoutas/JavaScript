@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contar vocales y consonantes</title>
+  </head>
+  <body>
+    <script>
+      const contarLetras = (texto = "") => {
+        if (!texto) return console.warn("no hay texto");
+        if (typeof texto !== "string")
+          return console.warn("no ingresaste un texto valido");
+
+        let vocales = 0,
+          consonantes = 0,
+          frase = texto
+            .toLowerCase()
+            .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+            .replace(/[\d]/gi, "")
+            .split(" ")
+            .join("");
+
+        console.log(frase);
+
+        for (let letra of frase) {
+          /[aeiouáéíóú]/.test(letra) ? vocales++ : consonantes++;
+        }
+
+        return console.log(
+          `la frase introducida tiene ${vocales} vocales y ${consonantes} consonantes`
+        );
+      };
+
+      contarLetras("hóla, me llamo carlos y tengo 24 anios");
+    </script>
+  </body>
+</html>

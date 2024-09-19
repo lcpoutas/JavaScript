@@ -1,0 +1,76 @@
+{
+  "Alumnos": [
+    {
+      "id": 1,
+      "nombre": "Rean Schwarzer",
+      "arma": "katana"
+    },
+    {
+      "id": 2,
+      "nombre": "Laura S Arseid",
+      "arma": "mandoble"
+    },
+    {
+      "nombre": "Alisa Reinford",
+      "arma": "arco",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nombre": "Emma Millstein",
+      "arma": "báculo"
+    },
+    {
+      "id": 5,
+      "nombre": "Eliot Craig",
+      "arma": "Báculo"
+    },
+    {
+      "id": 6,
+      "nombre": "Fie Claussell",
+      "arma": "pistolas"
+    },
+    {
+      "id": 7,
+      "nombre": "Gaius Worzel",
+      "arma": "lanza"
+    },
+    {
+      "id": 8,
+      "nombre": "Jesis Albarea",
+      "arma": "espada"
+    },
+    {
+      "id": 9,
+      "nombre": "Milnium",
+      "arma": "Silver Puppeteer"
+    }
+  ],
+  "Profesores": [
+    {
+      "id": 1,
+      "nombre": "Sara Valestein",
+      "arma": "pistolas"
+    },
+    {
+      "id": 2,
+      "nombre": "Neithardtr",
+      "arma": "sable"
+    },
+    {
+      "id": 3,
+      "nombre": "Vandyck",
+      "arma": "Glaive"
+    },
+    {
+      "id": 4,
+      "nombre": "Makarov",
+      "arma": "Orbal Staff"
+    },
+    {
+      "id": 1,
+      "nombre": "Heinrich",
+      "arma": "Libros"
+    }
+  ]
+}

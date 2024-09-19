@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>crear triangulo equilatero con asteriscos</title>
+  </head>
+  <body>
+    <script>
+      function triangulo(numero) {
+        let mitad = numero - 1; // calculamos el punto medio del triangulo
+
+        let resultado = "";
+
+        // bucle para filas
+        for (let i = 0; i < numero; i++) {
+          let nivel = ""; //aquí escribiremos los espacios y asteriscos de cada nivel
+          // bucle para columnas
+          for (let j = 0; j < 2 * numero - 1; j++) {
+            if (mitad - i <= j && mitad + i >= j) {
+              nivel += "*";
+            } else {
+              nivel += " ";
+            }
+          }
+
+          resultado += nivel + "\n"; // concatenamos cada nivel con un salto de linea
+        }
+
+        return resultado;
+      }
+
+      niveles = parseInt(prompt("¿Cuantos niveles tendrá tu triangulo?"));
+
+      console.log(triangulo(niveles));
+    </script>
+  </body>
+</html>

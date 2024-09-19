@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contar el numero de veces que se repite una palabra</title>
+  </head>
+  <body>
+    <script>
+      const contar = (texto = "", objetivo = "") => {
+        if (!texto) return console.warn("no existe texto");
+
+        if (!texto) return console.warn("no existe palabra objetivo");
+
+        let contador = 0;
+
+        for (palabra of texto.split(" ")) {
+          if (palabra === objetivo) {
+            contador++;
+          }
+        }
+
+        console.log(`la palabra ${objetivo} aparece ${contador} veces`);
+      };
+
+      contar(
+        "hola me llamo pedro y tengo 20 años, mi casa es roja y soy de madrid, ahora mismo estoy estudiando un master",
+        "soy"
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscar y contar una palabra en una frase</title>
+  </head>
+  <body>
+    <h1>Buscar y contar una palabra en una frase</h1>
+
+    <br />
+
+    <script>
+      function contar(frase, palabra) {
+        let textoLimpio = frase.toLowerCase().replace(/[,!¡¿?.;-]/gi, "");
+
+        // Esta primera sentencia nos transforma primero todas las letras a minuscula y luego busca y remplaza
+        // los caracteres incuidos dentro de los  corchetes por un espacio vacio, de esta manera tenemos un texto limpio,
+        // para hacer esto recurrimos  a lo que se conoce como expresion regular y se escribe como /[]/gi,
+        // la g indica global y la i indica que sea indiferente. poner el gion siempre al rpincipio o final de la expresion
+
+        let palabras = textoLimpio.split(" ");
+        let num = palabras.length;
+        let cont = 0;
+
+        for (let i = 0; i < num; i++)
+          if (palabras[i] == palabra) {
+            cont++;
+          } else {
+            cont += 0;
+          }
+
+        return cont;
+      }
+
+      frase = prompt("escribe la frase");
+      palabra = prompt("escribe la palabra objetivo");
+
+      document.write(
+        `la frase contiene la palabra ${palabra} ${contar(
+          frase,
+          palabra
+        )} veces`
+      );
+    </script>
+  </body>
+</html>

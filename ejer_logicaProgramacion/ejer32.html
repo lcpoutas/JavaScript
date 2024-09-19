@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>devolver el cuadrado de un array</title>
+  </head>
+  <body>
+    <script>
+      function cuadrado(num) {
+        arreglo = num.filter((elemento) => {
+          return typeof elemento === "number";
+        });
+
+        console.log(arreglo);
+
+        resultado = arreglo.map((elemento) => {
+          return Math.pow(elemento, 2);
+        });
+
+        return resultado;
+      }
+
+      numeros = [1, 2, 3, 4, 5];
+
+      console.log(cuadrado(numeros));
+    </script>
+  </body>
+</html>

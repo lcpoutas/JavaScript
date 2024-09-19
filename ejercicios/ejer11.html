@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcular el factorial de un numero</title>
+  </head>
+  <body>
+    <script>
+      const factorial = (numero = undefined) => {
+        //declaracion de posibles errores
+
+        if (numero === 0) return console.warn("el numero no puede ser cero");
+        if (!numero) return console.warn("no hay numero");
+        if (Math.sign(numero) === -1)
+          console.log("no se pueden ingresar numeros negativos");
+        if (typeof numero !== number)
+          console.error("no has ingresado un numero");
+
+        let factorial = 1;
+
+        //calculo del factorial
+
+        for (let i = 1; i <= numero; i++) {
+          factorial *= i;
+        }
+        return console.log(`el factorail de ${numero} es = ${factorial}`);
+      };
+
+      factorial(6);
+    </script>
+  </body>
+</html>

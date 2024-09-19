@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const meses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+      ];
+
+      const carrito = [
+        { nombre: "Monitor 27 pulgadas", precio: 500 },
+        { nombre: "Television", precio: 100 },
+        { nombre: "Tablet", precio: 200 },
+        { nombre: "Audifonos", precio: 300 },
+        { nombre: "Teclado", precio: 400 },
+        { nombre: "Celular", precio: 700 },
+      ];
+
+      // con un forEach
+
+      let total = 0;
+      carrito.forEach((precio) => (total += producto.precio));
+      console.log(total);
+
+      // con .reduce
+
+      let result = carrito.reduce(
+        (total, producto) => total + producto.recio,
+        0
+      ); // 0 seria el valor inicial de nuestra variable producto cuando aun no ha leido ningun producto.precio, digamos que es el inicalizador
+      console.log(result);
+    </script>
+  </body>
+</html>

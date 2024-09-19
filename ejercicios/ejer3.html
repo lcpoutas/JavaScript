@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Separar una cadena de texto por X separador</title>
+  </head>
+  <body>
+    <script>
+      const recortar = (cadena = "", sep = undefined) =>
+        !cadena
+          ? console.warn("no existe cadena")
+          : sep === undefined //concatenamos otro operador ternario
+          ? console.warn("no especificaste separador")
+          : console.info(`la nueva cadena es ${cadena.split(sep)}`);
+
+      cadena =
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim aspernatur quibusdam natus, error modi ipsam dolorum, laborum laboriosam nobis omnis fugit possimus vero nemo non perferendis, quis iure officia. Nisi.";
+
+      longitud = " ";
+
+      recortar(cadena, longitud);
+    </script>
+  </body>
+</html>

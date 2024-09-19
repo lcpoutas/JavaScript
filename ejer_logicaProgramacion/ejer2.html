@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detectar si una palabra es un palindromo</title>
+  </head>
+  <body>
+    <script>
+      function invertir(palabra) {
+        let letras = palabra.split("").reverse().join("");
+
+        return letras;
+
+        // Split nos separa los caracteres de la cadena de texto y forma un array
+        // Reverse invierte el orden de los elementos de un array
+        // Join une los elementos del array formando una cadena de caracteres
+      }
+
+      function comparar(palabra, palabra2) {
+        if (palabra2 === palabra) {
+          document.write(`La palabra ${palabra} es un palindromo`);
+        } else {
+          document.write(`La palabra ${palabra} no es un palindromo`);
+        }
+      }
+
+      const palabra = prompt("indica la palabra a estudiar");
+
+      const invertida = invertir(palabra);
+
+      comparar(palabra, invertida);
+    </script>
+  </body>
+</html>

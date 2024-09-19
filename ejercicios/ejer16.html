@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calcular un descuento</title>
+  </head>
+  <body>
+    <script>
+      const descuento = (numero = undefined, desc = 0) => {
+        //declaracion de posibles errores
+        if (!numero) return console.warn("no hay numero");
+        if (typeof numero !== "number")
+          return console.warn("no ingresaste un numero");
+        if (!desc) return console.warn("no hay base");
+        if (typeof desc !== "number")
+          console.error("no has ingresado un valor correcto en la base");
+        if (Math.sign(desc) === -1)
+          console.error("el descuento no puede ser negativo");
+
+        return console.info(
+          `el precio ${numero} con el descuento de ${desc} te queda en un precio de${
+            numero - (numero * desc) / 100
+          }`
+        );
+      };
+
+      descuento(100, 25);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validar un correo</title>
+  </head>
+  <body>
+    <script>
+      const Validar = (texto = "") => {
+        if (!texto) return console.warn("no hay email");
+        if (typeof texto !== "string")
+          return console.warn("no ingresaste un email valido");
+
+        let expReg =
+          /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(
+            numbre
+          );
+
+        return expReg
+          ? console.log(`el nombre introducido es valido`)
+          : console.log("el nombre no es valido");
+      };
+
+      Validar("luis carlos de vicente poutas");
+    </script>
+  </body>
+</html>

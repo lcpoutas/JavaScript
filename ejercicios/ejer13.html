@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcular si el numero dado es par o impar</title>
+  </head>
+  <body>
+    <script>
+      const par = (numero = undefined) => {
+        //declaracion de posibles errores
+
+        if (!numero) return console.warn("no hay numero");
+
+        if (typeof numero !== number)
+          console.error("no has ingresado un numero");
+
+        return numero % 2 === 0
+          ? console.log("el numero es par")
+          : console.log("el numero es impar");
+      };
+
+      par(24);
+    </script>
+  </body>
+</html>
